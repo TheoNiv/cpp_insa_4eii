@@ -3,7 +3,6 @@
 // C++ Lab2
 // Comment
 
-#
 #include <String>
 #include <iostream>
 
