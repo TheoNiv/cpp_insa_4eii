@@ -1,9 +1,7 @@
 // TP1_newblankproject.cpp
 // 06/10/2017
 // C++ Lab1
-// Complet, à l'exception 
-// de la méthode pour utiliser display overload dans game
-// et des commentaires...
+// without << overload for a game and comments
 
 #include "Card.h"
 #include "Game.h"

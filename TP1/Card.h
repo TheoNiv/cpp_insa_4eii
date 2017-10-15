@@ -24,12 +24,12 @@ public:
 	bool equalsSuit(const Card& card) const;
 	bool equalsSymbol(const Card& card) const;
 	Card& operator=(const Card& card);
-	friend std::ostream& operator<<(std::ostream& os, const Card& card); // accès membres privés
+	friend std::ostream& operator<<(std::ostream& os, const Card& card); // friend <=> private members access but not a Card's method
 };
 
 //std::ostream& operator<<(std::ostream& os, const Card& card);
 
-inline Card::Suits Card::getSuit() const
+inline Card::Suits Card::getSuit() const // getter 
 {
 	return suit_;
 }
