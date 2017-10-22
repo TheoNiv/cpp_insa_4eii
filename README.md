@@ -2,10 +2,10 @@
 
 Labs and Tutorial of the 4EII's cpp course at INSA Rennes
 
-##Lab1
+## Lab1
 
-##Lab2
+## Lab2
 
-##TD1
+## TD1
 
-##TD2
+## TD2
