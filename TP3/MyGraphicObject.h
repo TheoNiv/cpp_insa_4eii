@@ -2,6 +2,9 @@
 #define MYGRAPHICOBJECT_H
 
 #include "MyGDIplus.hpp"
+#define  _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
 
 #define PEN_WIDTH 10
 
@@ -42,14 +45,31 @@ inline MyGraphicObject * MyGraphicObject::getNext() const
 
 inline MyGraphicObject::~MyGraphicObject() // Voir la version du prof, sinon version perso
 {
-	MyGraphicObject** ptr = &first_;
-	while (*ptr != nullptr && *ptr != this) ptr = &((*ptr)->next_);
+	/*MyGraphicObject** ptr = &first_; 
+	MyGraphicObject** ptr_prec = &first_;
+	while (*ptr != nullptr && *ptr != this) 
+	{
+		ptr_prec = ptr;
+		ptr = &((*ptr)->next_);
+	}
 	*ptr = ((*ptr)->next_);
-	/*MyGraphicObject** tmp;
-	for (tmp = &first_; (*tmp)->next_ != this; tmp = &((*tmp)->next_));
-	(*tmp)->next_ = this;
-	if (first_ == next_) first_ = next_;
+	(*ptr_prec)->next_ = *ptr;
 	delete this;*/
+	/*MyGraphicObject** tmp = &first_;
+	if (this == getFirst()) first_ = getNext(); // maj first si sup first
+	for (; (*tmp)->getNext() != this && (*tmp) != this; tmp = &((*tmp)->next_)); // tant que
+	(*tmp)->next_ = getNext(); // next ppv next de l'obj à sup si first == next first ppv la meme valeur si end, ppv null
+	delete this;*/
+	if (this == first_)
+		first_ = next_;
+	else
+	{
+		MyGraphicObject* tmp = first_;
+		while (tmp->next_ != this) tmp = tmp->next_;
+		tmp->next_ = this->next_;
+	}
+	delete this;
+
 }
 
 #endif

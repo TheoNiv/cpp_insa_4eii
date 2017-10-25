@@ -20,6 +20,8 @@ namespace Game {
         //IMPORTANT : your constructors may be different, if so change the provided code
 
 		// IMPORTANT: memory is handled by MyGraphicObject -> new here -> delete in desinit
+		_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+		_CrtSetReportMode(_CRT_ERROR, _CRTDBG_MODE_DEBUG);
 
 		new MyPoint(100, 100, Color::Black);
 
