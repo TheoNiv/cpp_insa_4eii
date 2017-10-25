@@ -153,6 +153,7 @@ namespace {
 			EndPaint(hWnd, &ps);
 			return 0;
 		case WM_DESTROY:
+			Game::desinit();
 			PostQuitMessage(0);
 			return 0;
 		default:
