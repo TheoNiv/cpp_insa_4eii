@@ -23,10 +23,11 @@ namespace Game {
 		_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 		_CrtSetReportMode(_CRT_ERROR, _CRTDBG_MODE_DEBUG);
 
-		new MyPoint(100, 100, Color::Black);
+		new MyPoint(0, 0, Color::Black);
+		new MyRectangle(0, 0, 250, 100, true, Color::PowderBlue);
 
-		new MyRectangle(300,250,250,100, true,Color::PowderBlue);
-		new MySquare(400,225,50,true,Color::MediumOrchid);
+		new MyRectangle(15,15,250,100, true,Color::PowderBlue);
+		new MySquare(0,0,50,true,Color::MediumOrchid);
 		new MySegment(400 + 25, 250 - 50, 50, 50, Color::MediumPurple);
 		new MyCircle(300 - 30, 250 + 100 - 30, 60, false, Color::MediumVioletRed);
 		new MyCircle(300 - 30 + 250, 250 + 100 - 30, 60, true, Color::SlateGray);
