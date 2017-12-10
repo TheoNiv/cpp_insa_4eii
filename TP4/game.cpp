@@ -5,6 +5,11 @@
 #include "MyRocket.h"
 #include <ctime>        // std::time
 
+namespace random_nb
+{
+	int myrandom(int i) { return std::rand() % i; }
+}
+
 //Uncomment step by step
 Game::Game() :frame_(0),rocket_(0),missile_(0),game_over_(0) { }
 
@@ -26,9 +31,9 @@ void Game::initialize()
 	if (frame_) return; // guard
 	//Uncomment step by step
 	std::srand(unsigned(std::time(0)));
-	frame_   = new MyFrame(Position(10, 10), MySize(700, 420), Color::Brown);
-	missile_ = new MyMissile(Position(200, 50), 20, Speed(5, 6), Color::Orange);
-	rocket_  = new MyRocket(Position(200, 400), MySize(20, 30), Speed(1, 5), Color::Green);
+	frame_   = new MyFrame(Position(10, 10), MySize(1000, 500), Color::Violet);
+	missile_ = new MyMissile(Position(1 + random_nb::myrandom(400), 1 + random_nb::myrandom(200)), 15, Speed(2+random_nb::myrandom(10), 2+random_nb::myrandom(15)), Color::Orange);
+	rocket_  = new MyRocket(Position(1 + random_nb::myrandom(400), 1 + random_nb::myrandom(200)), MySize(100, 20), Speed(2 + random_nb::myrandom(5), 2 + random_nb::myrandom(5)), Color::MediumPurple);
 }
 
 /*!
@@ -47,7 +52,7 @@ void Game::step() {
 		if (frame_->isHit(missile_->getBoundingBox())) missile_->changeDirection();
 		if (rocket_->isHit(missile_->getBoundingBox()))
 		{
-			rocket_->explode(); 
+			missile_->explode(); 
 			game_over_ = 1;
 		}
 	}
@@ -62,8 +67,8 @@ void Game::draw() {
 	if (!frame_) return; // guard
 	//Uncomment step by step
 	frame_->draw();
-	missile_->draw();
 	rocket_->draw();
+	missile_->draw();
 }
 
 

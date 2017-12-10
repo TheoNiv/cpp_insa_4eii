@@ -1,7 +1,7 @@
 #pragma once
 #include "MyImmobile.h"
 #include "MyRectangle.h"
-
+#include "MyCircle.h"
 class MyFrame :
 	public MyImmobile
 {

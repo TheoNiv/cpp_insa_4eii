@@ -17,8 +17,8 @@ namespace {
 	HDC     hdc = NULL;
 	LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 	Game game;
-	const int kWidth = 750;
-	const int kHeight = 500;
+	const int kWidth = 1040;
+	const int kHeight = 560;
 
 	class OffScreen {
 	public:

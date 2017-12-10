@@ -13,5 +13,4 @@ public:
 	}
 
 	~MyRocket();
-	void explode();
 };

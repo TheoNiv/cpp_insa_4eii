@@ -4,15 +4,13 @@
 #include <cstdlib>      // std::rand, std::srand
 #include <random>
 
-namespace random_nb
-{
-	int myrandom(int i) { return std::rand() % i; }
-}
+#define VMAX 5
 
 void MyMobile::changeDirection()
 {
-	sp_.x = (sp_.x < 0)? random_nb::myrandom((2 * sp_.x == 0) ? 10 : 2 * sp_.x) : -random_nb::myrandom((2*sp_.x == 0)? 10:2*sp_.x);
-	sp_.y = (sp_.y < 0)? random_nb::myrandom((2 * sp_.y == 0) ? 10 : 2 * sp_.y) : -random_nb::myrandom((2*sp_.y == 0)? 10:2*sp_.y);
+	int spx = sp_.x;
+	sp_.x = -sp_.y;
+	sp_.y = spx;
 }
 
 void MyMobile::step()

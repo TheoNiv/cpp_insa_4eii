@@ -3,7 +3,3 @@
 MyRocket::~MyRocket()
 {
 }
-
-void MyRocket::explode()
-{
-}
