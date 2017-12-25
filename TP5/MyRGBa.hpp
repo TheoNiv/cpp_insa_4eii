@@ -1,33 +1,44 @@
-
 #ifndef MYRGBA_H
 #define MYRGBA_H
+#include <iostream>
+#include "MyImage.hpp"
 
 class MyRGBa
-{
-public:
-	MyRGBa() : R_(0), G_(0), B_(0), A_(0) {}
-	MyRGBa(const unsigned char r, const unsigned char g, const unsigned char b, const unsigned char a = 0) : R_(r), G_(g), B_(b), A_(a) {}
-	MyRGBa(const unsigned char v) : R_(v), G_(v), B_(v), A_(0) {}
-	MyRGBa(const MyRGBa &v) : R_(v.R_), G_(v.G_), B_(v.B_), A_(v.A_) {}
+ {
+ public:
+    MyRGBa() : R_(0), G_(0), B_(0), A_(0) {}
+    MyRGBa(const unsigned char r, const unsigned char g, const unsigned char b, const unsigned char a = 0) : R_(r), G_(g), B_(b), A_(a) {}
+    MyRGBa(const unsigned char v) : R_(v), G_(v), B_(v), A_(0) {}
+    //rule of 3 : no copy ctor, no copy assigment, no dtor
 
-	bool operator<(const MyRGBa &v) const;
-	bool operator>(const MyRGBa &v) const;
 
-	unsigned char getR() const { return R_; }
-	unsigned char getG() const { return G_; }
-	unsigned char getB() const { return B_; }
-	unsigned char getA() const { return A_; }
+    //accessors
+    inline unsigned char getR() const {return R_;}
+    inline unsigned char getG() const {return G_;}
+    inline unsigned char getB() const {return B_;}
+    inline unsigned char getA() const {return A_;}
 
-	unsigned char getGreyValue() const { return (unsigned char)(R_*0.299 + G_*0.587 + B_*0.114); }
+    //operators
+    bool operator==(const MyRGBa &v) const;
+    bool operator!=(const MyRGBa &v) const;
 
-	// operator
-	MyRGBa operator-(const MyRGBa &p) const;
+    MyRGBa operator-(const MyRGBa &v) const;
+    MyRGBa operator+(const MyRGBa &v) const;
+
+    bool operator<(const MyRGBa &v) const;
+    bool operator>(const MyRGBa &v) const;
+
+
+    inline unsigned char getGreyValue() const {return (unsigned char)(R_*0.299 + G_*0.587 + B_*0.114);}
+	friend std::ostream& operator<<(std::ostream& os, const MyRGBa& v); // not useful in order to use template
+
 private:
-	unsigned char R_;
-	unsigned char G_;
-	unsigned char B_;
-	unsigned char A_;
-};
+    unsigned char R_ ;
+    unsigned char G_ ;
+    unsigned char B_ ;
+    unsigned char A_ ;
+
+ } ;
 
 #endif
 

@@ -1,5 +1,34 @@
 #include "MyRGBa.hpp"
 
+bool MyRGBa::operator==(const MyRGBa &v) const
+{
+    return (R_ == v.R_) && (G_ == v.G_) && (B_ == v.B_) && (A_ == v.A_) ;
+}
+
+bool MyRGBa::operator!=(const MyRGBa &v) const
+{
+    return (R_ != v.R_) || (G_ != v.G_) || (B_ != v.B_) || (A_ != v.A_) ;
+}
+
+ MyRGBa MyRGBa::operator-(const MyRGBa &v) const
+{
+  MyRGBa n( R_ - v.R_,
+            G_ - v.G_,
+            B_ - v.B_,
+            A_ - v.A_);
+  return n;
+}
+ 
+ MyRGBa MyRGBa::operator+(const MyRGBa &v) const
+{
+     MyRGBa n( R_ + v.R_,
+               G_ + v.G_,
+               B_ + v.B_,
+               A_ + v.A_);
+     return n;
+}
+
+
 bool MyRGBa::operator<(const MyRGBa &v) const
 {
   double gray1 = this->getGreyValue();
@@ -16,13 +45,8 @@ bool MyRGBa::operator<(const MyRGBa &v) const
   return (gray1 > gray2);
 }
 
-
-// NB: bad arithmetic here (no clamp)
- MyRGBa MyRGBa::operator-(const MyRGBa &p) const {
-	 MyRGBa p2;
-	 p2.R_ = R_ - p.R_;
-	 p2.G_ = G_ - p.G_;
-	 p2.B_ = B_ - p.B_;
-	 p2.A_ = A_ - p.A_;
-	 return p2;
+ std::ostream & operator<<(std::ostream & os, const MyRGBa & v)
+ {
+	 os << "R=" << (int)v.getR() << " G=" << (int)v.getG() << " B=" << (int)v.getB() << " a=" << (int)v.getA() << std::endl;
+	 return os;
  }
