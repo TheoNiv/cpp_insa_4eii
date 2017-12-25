@@ -59,6 +59,9 @@ namespace MyImageIO {
 
         file = fopen(filename.c_str(), "rb");
 
+		if (MyImageIO::getFormat(filename) == BMP) {
+			throw(invalid_argument("BMP extension not supported"));
+		}
         if (file == NULL) {
             throw (ios_base::failure("Cannot write file in readJPEG()")) ;
         }
@@ -115,7 +118,10 @@ namespace MyImageIO {
         jpeg_create_compress(&cinfo);
 
         file = fopen(filename.c_str(), "wb");
-
+		
+		if (MyImageIO::getFormat(filename) == BMP) {
+			throw(invalid_argument("BMP extension not supported"));
+		}
         if (file == NULL) {
             throw (ios_base::failure("Cannot write file in writeJPEG()")) ;
         }
@@ -165,7 +171,9 @@ namespace MyImageIO {
 
         file = fopen(filename.c_str(), "rb");
 
-
+		if (MyImageIO::getFormat(filename) == BMP) {
+			throw(invalid_argument("BMP extension not supported"));
+		}
         if (file == NULL) {
             throw (ios_base::failure("Cannot write file in readJPEG()")) ;
         }
@@ -226,6 +234,9 @@ namespace MyImageIO {
 
         file = fopen(filename.c_str(), "wb");
 
+		if (MyImageIO::getFormat(filename) == BMP) {
+			throw(invalid_argument("BMP extension not supported"));
+		}
         if (file == NULL) {
             throw (ios_base::failure("Cannot write file in writeJPEG()")) ;
         }

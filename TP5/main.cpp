@@ -31,7 +31,7 @@ int main()
 
 	/*MyImage<MyRGBa> img_test(0, 0);
 	img_test.read("test-color.jpg");
-	for (int i = 0; i <= img_test.size(); ++i) // Old School, a voir
+	for (int i = 0; i <= img_test.size(); ++i) // Old School... à voir
 	{
 		if(img_test[i] > 128) img_test[i] = MyRGBa(255, 0, 0, 0);
 		else img_test[i] = MyRGBa(0, 0, 255, 0);
@@ -40,6 +40,21 @@ int main()
 	img_test.write("test-colornew.jpg");*/
 
 	// Gestion des exceptions
-
+	/*MyImage<MyRGBa> img_test(0, 0);
+	try
+	{
+		img_test.read("test-bw.bmp"); // throw mais pas catch ?
+	}
+	catch (const std::ios_base::failure& e)
+	{
+		std::cerr << "Caught an ios_base::failure.\n"
+			<< "Explanatory string: " << e.what() << '\n'
+			<< "Error code: " << e.code() << '\n';
+	}
+	catch (const std::invalid_argument& e)
+	{
+		std::cerr << "Caught an invalid_argument.\n"
+			<< "Explanatory string: " << e.what() << '\n';
+	}*/
 	return 0;
 }
