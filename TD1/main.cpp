@@ -14,7 +14,7 @@ int main()
 	// 1 - Quelles instructions a-t-on le droit de faire juste après cette déclaration de pointeur
 	//int * p = NULL; // Déclare un pointeur vide vers un entier 
 
-	//p = new int; // Right - Call the new operator to allocate memory, then the by default int constructor, return a int*
+	//p = new int; // Right - Call the new operator to allocate memory, then the default int constructor, return a int*
 	//*p = 4; // False - Affecte la valeur 4 à l'adresse pointée par p, or p ne pointe vers rien
 	//p = new int; *p = 4; // Right - Affecte une adresse puis une valeur à cette adresse
 	//p = new int(4); // Right - Call the int constructor with one parameters in order to affect a value
@@ -34,7 +34,7 @@ int main()
 	//delete[]p; // //
 
 	// 3 - Quelles instructions a-t-on le droit de faire juste après cette déclaration de pointeur
-	//int * const p = NULL; // const à droite de l'étoile => le pointeur est constant
+	//int * const p = NULL; // /!\ const à droite de l'étoile => le pointeur est constant
 
 	//Tous les cas sont faux, nous avons un pointeur constant vers rien
 	//sauf les delete mais il ne servent à rien...

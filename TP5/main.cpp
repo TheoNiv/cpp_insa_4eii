@@ -1,8 +1,8 @@
 #include "MyImage.hpp"
-
+/* Follow the step to configure the lib, don't forget to change the build config in order to match with the library build (Release x86 in my case)*/
 int main()
 {
-	/*MyImage<unsigned char> img_grey(10, 8); // Test fonction de position
+	/*MyImage<unsigned char> img_grey(10, 8); // Test fonction de position dans la matrice
 	img_grey(0, 0) = 128;
 	img_grey(0, 1) = 128;
 	std::cout << (int)img_grey(0, 0) << ' ' << (int)img_grey(0, 2) << std::endl;*/
@@ -29,7 +29,7 @@ int main()
 	img_withdraw =  MyRGBa(128, 128, 128, 0);
 	std::cout << img_withdraw(0, 0) << std::endl;*/
 
-	/*MyImage<MyRGBa> img_test(0, 0);
+	/*MyImage<MyRGBa> img_test(0, 0); // Application d'un filtre sur l'image couleur
 	img_test.read("test-color.jpg");
 	for (int i = 0; i <= img_test.size(); ++i) // Old School... à voir
 	{

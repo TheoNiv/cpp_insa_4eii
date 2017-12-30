@@ -9,7 +9,7 @@ MyString::MyString()
 
 MyString::MyString(const char * s)
 {
-	mystring_ = new char[strlen(s)+1];
+	mystring_ = new char[strlen(s)+1]; // +1 pour le '\0' (fin de chaine) strlen ne le retourne pas mais dans tous les cas char* ne contient pas le char de fin de chaine
 	strcpy_s(mystring_, strlen(s)+1, s);
 	mystring_[strlen(mystring_)] = '\0';
 	LOGME("Constructeur char*");
@@ -25,14 +25,14 @@ MyString::MyString(const MyString & c)
 
 MyString::~MyString()
 {
-	delete [] mystring_;
+	delete [] mystring_; // pointeur donc destructeur, opérateur d'affec et constructeur par recopie
 	LOGME("Destructeur");
 }
 
 MyString & MyString::toUpper()
 {
 	for (int i = 0; i <= strlen(mystring_); ++i)
-		if (mystring_[i] >= 97 && mystring_[i] <= 122) mystring_[i] = mystring_[i] - 32;
+		if (mystring_[i] >= 97 && mystring_[i] <= 122) mystring_[i] = mystring_[i] - 32; // passer par des variables globales pour ce genre d'op
 	return *this;
 }
 
@@ -51,7 +51,7 @@ MyString & MyString::operator=(const MyString & s)
 char & MyString::operator[](int index)
 {
 	LOGME("Operateur []");
-	if (index > strlen(mystring_)) throw exception("index en dehors des limites");
+	if (index > strlen(mystring_)) throw exception("index en dehors des limites"); // catch les exceptions quand on utilise cette fonction
 	return mystring_[index];
 }
 

@@ -1,7 +1,7 @@
-// TP1_newblankproject.cpp
+// TP1.cpp
 // 06/10/2017
 // C++ Lab1
-// without << overload for a game and comments
+// without << overload for a game
 
 #include "Card.h"
 #include "Game.h"

@@ -19,13 +19,13 @@ private:
 	char * mystring_;
 
 public:
-	MyString();
+	MyString(); // constructeur par defaut
 	MyString(const char * s);
-	MyString(const MyString &c);
+	MyString(const MyString &c); // constructeur par recopie
 
 	~MyString();
 
-	inline char * getString() const;
+	inline char * getString() const; // getter setter en inline
 
 	MyString subString(char begin, char end);
 	MyString subString(int begin, int s);
@@ -33,7 +33,7 @@ public:
 	MyString& toUpper();
 	MyString& operator=(const MyString& s);
 	char& operator[](int index);
-	const char operator[](int index) const;
+	const char operator[](int index) const; // déclarer la version const et non const de cet opérateur
 	bool operator==(const MyString &s); // Pourquoi plus efficace que friend ?
 	bool operator<(const MyString &s);
 	bool operator>(const MyString &s);

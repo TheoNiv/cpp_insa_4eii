@@ -45,7 +45,6 @@ const bool Game::init() {
 
 	if (!init_seed_)
 		std::srand(unsigned(std::time(0)));
-
 	return true;
 }
 void Game::shuffle()
